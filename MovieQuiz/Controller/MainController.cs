@@ -1,8 +1,8 @@
 ﻿using MovieQuiz.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace MovieQuiz.Controller
@@ -16,6 +16,7 @@ namespace MovieQuiz.Controller
         private int timeleft;
         private bool timerStarted = false;
         private WMPLib.WindowsMediaPlayer player;
+        private HighScores highscores = new HighScores(Program.HIGHSCORE_DB);
 
         internal void setView(Views.MainMenu view)
         {
@@ -35,9 +36,9 @@ namespace MovieQuiz.Controller
             {
                 quiz = new Quiz(Program.JSON_FILE);
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                view.ShowError("Quiz Daten konnten nicht aus der " + Program.JSON_FILE + " Datei geladen werden:" + Environment.NewLine + ex.Message,
+                view.ShowError("Quiz Daten konnten nicht aus der " + Program.JSON_FILE + " Datei geladen werden:" + Environment.NewLine + e.Message,
                     "Fehler beim Laden des Quiz");
                 return;
             }
@@ -58,35 +59,26 @@ namespace MovieQuiz.Controller
             }
             else
             {
-                // finished: show result and save to highscore list
+                // finished: save to highscore list and show result
+                highscores.AddEntry(teamName, quiz.Score);
                 view.ShowResult(quiz.Score);
-                SaveHighScore(teamName);
             }
         }
 
-        private void SaveHighScore(string teamName)
-        {
-            // TODO implement me
-        }
 
         public void OnRequestHighScore()
         {
-            view.ShowHighScore(GetHighScore());
-        }
-
-        private List<KeyValuePair<String, int>> GetHighScore()
-        {
-            // TODO implement me
-            var list = new List<KeyValuePair<string, int>>() {
-                new KeyValuePair<string, int>("A", 1),
-                new KeyValuePair<string, int>("B", 2),
-                new KeyValuePair<string, int>("C", 3),
-                new KeyValuePair<string, int>("D", 4),
-                new KeyValuePair<string, int>("E", 5),
-                new KeyValuePair<string, int>("F", 6),
-            };
-
-            return list;
+            List<KeyValuePair<string, int>> highscoreList;
+            try
+            {
+                highscoreList = highscores.GetEntries();
+            }
+            catch (SQLiteException e)
+            {
+                view.ShowError("Bestenliste konnte nicht geladen werden:" + Environment.NewLine + e.Message, "Fehler beim Laden der Bestenliste");
+                return;
+            }
+            view.ShowHighScore(highscoreList);
         }
 
         public void OnPlaySoundFile()
@@ -96,6 +88,7 @@ namespace MovieQuiz.Controller
                 player = new WMPLib.WindowsMediaPlayer();
                 player.PlayStateChange += OnPlayerStateChange;
             }
+
             try
             {
                 player.URL = Path.Combine(Program.SOUND_DIR, quiz.SoundFile);
