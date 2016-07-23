@@ -29,7 +29,7 @@ namespace MovieQuiz.Models
 
         public void LimitQuestionsTo(int maxQuestions)
         {
-            questions = questions.Take(maxQuestions).ToList();
+            questions = questions.Take(maxQuestions+1).ToList();
         }
 
         internal bool IsDone()
