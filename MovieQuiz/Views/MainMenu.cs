@@ -49,6 +49,7 @@ namespace MovieQuiz.Views
         internal void ShowTimeout(int score)
         {
             MessageBox.Show("Zu spät, die Zeit ist um!", "Zu spät!");
+            controller.OnRequestNextQuestion();
         }
 
         internal void ShowCorrect(int score)
