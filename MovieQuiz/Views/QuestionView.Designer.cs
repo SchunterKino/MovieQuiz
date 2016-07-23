@@ -38,8 +38,9 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 39);
+            this.label1.Location = new System.Drawing.Point(29, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(267, 13);
             this.label1.TabIndex = 0;
@@ -71,9 +72,9 @@
             // answerPanel
             // 
             this.answerPanel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.answerPanel.Location = new System.Drawing.Point(63, 210);
+            this.answerPanel.Location = new System.Drawing.Point(30, 210);
             this.answerPanel.Name = "answerPanel";
-            this.answerPanel.Size = new System.Drawing.Size(199, 146);
+            this.answerPanel.Size = new System.Drawing.Size(264, 146);
             this.answerPanel.TabIndex = 5;
             // 
             // QuestionView
