@@ -1,18 +1,21 @@
 ﻿using MovieQuiz.Models;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace MovieQuiz.Controller
 {
     public class MainController
     {
+        private string teamName;
         private Quiz quiz;
         private Views.MainMenu view;
         private Timer timer;
         private int timeleft;
         private bool timerStarted = false;
-        WMPLib.WindowsMediaPlayer player;
+        private WMPLib.WindowsMediaPlayer player;
 
         internal void setView(Views.MainMenu view)
         {
@@ -25,8 +28,9 @@ namespace MovieQuiz.Controller
             timer.Tick += OnTimerTick;
         }
 
-        public void OnNewGame(string playerName)
+        public void OnNewGame(string teamName)
         {
+            this.teamName = teamName;
             try
             {
                 quiz = new Quiz(Program.JSON_FILE);
@@ -54,8 +58,35 @@ namespace MovieQuiz.Controller
             }
             else
             {
+                // finished: show result and save to highscore list
                 view.ShowResult(quiz.Score);
+                SaveHighScore(teamName);
             }
+        }
+
+        private void SaveHighScore(string teamName)
+        {
+            // TODO implement me
+        }
+
+        public void OnRequestHighScore()
+        {
+            view.ShowHighScore(GetHighScore());
+        }
+
+        private List<KeyValuePair<String, int>> GetHighScore()
+        {
+            // TODO implement me
+            var list = new List<KeyValuePair<string, int>>() {
+                new KeyValuePair<string, int>("A", 1),
+                new KeyValuePair<string, int>("B", 2),
+                new KeyValuePair<string, int>("C", 3),
+                new KeyValuePair<string, int>("D", 4),
+                new KeyValuePair<string, int>("E", 5),
+                new KeyValuePair<string, int>("F", 6),
+            };
+
+            return list;
         }
 
         public void OnPlaySoundFile()

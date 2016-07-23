@@ -31,7 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.logo = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.newQuizView = new MovieQuiz.Views.NewQuizView();
+            this.highScoresView = new FilmQuiz.Views.HighScoresView();
+            this.newQuizView = new MovieQuiz.Views.MainMenuView();
             this.questionView = new MovieQuiz.Views.QuestionView();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
@@ -47,6 +48,14 @@
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logo.TabIndex = 0;
             this.logo.TabStop = false;
+            // 
+            // highScoresView
+            // 
+            this.highScoresView.Location = new System.Drawing.Point(9, 110);
+            this.highScoresView.Name = "highScoresView";
+            this.highScoresView.Size = new System.Drawing.Size(366, 340);
+            this.highScoresView.TabIndex = 3;
+            this.highScoresView.Visible = false;
             // 
             // newQuizView
             // 
@@ -71,6 +80,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 462);
             this.Controls.Add(this.newQuizView);
+            this.Controls.Add(this.highScoresView);
             this.Controls.Add(this.questionView);
             this.Controls.Add(this.logo);
             this.MinimumSize = new System.Drawing.Size(400, 500);
@@ -85,8 +95,9 @@
 
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.Timer timer;
-        private NewQuizView newQuizView;
+        private MainMenuView newQuizView;
         private QuestionView questionView;
+        private FilmQuiz.Views.HighScoresView highScoresView;
     }
 }
 

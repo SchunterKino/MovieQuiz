@@ -1,6 +1,6 @@
 ﻿namespace MovieQuiz.Views
 {
-    partial class NewQuizView
+    partial class MainMenuView
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,6 +32,7 @@
             this.nameText = new System.Windows.Forms.TextBox();
             this.newGameButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.highScoreButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,6 +69,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.highScoreButton);
             this.panel1.Controls.Add(this.newGameButton);
             this.panel1.Controls.Add(this.nameLabel);
             this.panel1.Controls.Add(this.nameText);
@@ -77,12 +79,22 @@
             this.panel1.Size = new System.Drawing.Size(363, 339);
             this.panel1.TabIndex = 2;
             // 
-            // NewQuizView
+            // highScoreButton
+            // 
+            this.highScoreButton.Location = new System.Drawing.Point(38, 211);
+            this.highScoreButton.Name = "highScoreButton";
+            this.highScoreButton.Size = new System.Drawing.Size(282, 23);
+            this.highScoreButton.TabIndex = 2;
+            this.highScoreButton.Text = "Bestenliste";
+            this.highScoreButton.UseVisualStyleBackColor = true;
+            this.highScoreButton.Click += new System.EventHandler(this.highScoreButton_Click);
+            // 
+            // MainMenuView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Name = "NewQuizView";
+            this.Name = "MainMenuView";
             this.Size = new System.Drawing.Size(363, 339);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -96,5 +108,6 @@
         private System.Windows.Forms.TextBox nameText;
         private System.Windows.Forms.Button newGameButton;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button highScoreButton;
     }
 }

@@ -27,6 +27,8 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -57,6 +59,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.102.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.102.0\lib\net451\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -72,6 +78,18 @@
     <Compile Include="Extensions\ShuffleExtension.cs" />
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Quiz.cs" />
+    <Compile Include="Views\HighScoresEntry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\HighScoresEntry.Designer.cs">
+      <DependentUpon>HighScoresEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HighScoresView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\HighScoresView.Designer.cs">
+      <DependentUpon>HighScoresView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,11 +98,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\NewQuizView.cs">
+    <Compile Include="Views\MainMenuView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\NewQuizView.Designer.cs">
-      <DependentUpon>NewQuizView.cs</DependentUpon>
+    <Compile Include="Views\MainMenuView.Designer.cs">
+      <DependentUpon>MainMenuView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\QuestionView.cs">
       <SubType>UserControl</SubType>
@@ -92,6 +110,12 @@
     <Compile Include="Views\QuestionView.Designer.cs">
       <DependentUpon>QuestionView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\HighScoresEntry.resx">
+      <DependentUpon>HighScoresEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\HighScoresView.resx">
+      <DependentUpon>HighScoresView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -105,8 +129,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Views\NewQuizView.resx">
-      <DependentUpon>NewQuizView.cs</DependentUpon>
+    <EmbeddedResource Include="Views\MainMenuView.resx">
+      <DependentUpon>MainMenuView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\QuestionView.resx">
       <DependentUpon>QuestionView.cs</DependentUpon>
@@ -158,6 +182,13 @@
     <None Include="Resources\playbutton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.102.0\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.102.0\build\net451\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.102.0\build\net451\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.102.0\build\net451\System.Data.SQLite.Core.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -17,15 +17,19 @@ namespace MovieQuiz.Views
             controller.setView(this);
             controller.setTimer(timer);
             
-            newQuizView.OnGameStarted += controller.OnNewGame;
-            questionView.OnAnswer += controller.OnAnswer;
-            questionView.OnPlaySoundFile += controller.OnPlaySoundFile;
+            // send events from controls directly to controller
+            newQuizView.StartGame += controller.OnNewGame;
+            newQuizView.ShowHighScore += controller.OnRequestHighScore;
+            questionView.GiveAnswer += controller.OnAnswer;
+            questionView.PlaySoundFile += controller.OnPlaySoundFile;
+            highScoresView.ShowMenu += controller.OnRequestMainMenu;
         }
 
         internal void ShowQuestion(List<string> answers, int questionNumber, int questionCount, int timeout)
         {
             controller.OnPlaySoundFile();
             newQuizView.Hide();
+            highScoresView.Hide();
             questionView.Show();
             questionView.SetQuestion(answers, questionNumber, questionCount, timeout);
         }
@@ -33,6 +37,7 @@ namespace MovieQuiz.Views
         internal void ShowMainMenu()
         {
             questionView.Hide();
+            highScoresView.Hide();
             newQuizView.Show();
         }
 
@@ -67,8 +72,15 @@ namespace MovieQuiz.Views
         internal void ShowResult(int score)
         {
             MessageBox.Show("Yay! Ihr habt euch " + score + " Punkte erspielt!", "Ergebnis");
-            controller.OnRequestMainMenu();
+            controller.OnRequestHighScore();
         }
 
+        internal void ShowHighScore(List<KeyValuePair<string, int>> list)
+        {
+            newQuizView.Hide();
+            questionView.Hide();
+            highScoresView.Show();
+            highScoresView.SetHighScores(list);
+        }
     }
 }
