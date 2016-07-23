@@ -1,4 +1,4 @@
-﻿namespace FilmQuiz.Views
+﻿namespace MovieQuiz.Views
 {
     partial class HighScoresEntry
     {

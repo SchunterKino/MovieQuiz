@@ -8,6 +8,7 @@ namespace MovieQuiz
     {
         public const string JSON_FILE = @"quiz.json";
         public const string SOUND_DIR = @"Sounds";
+        public const string HIGHSCORE_DB = @"highscores.sqlite";
         public const int MAX_QUESTIONS = 10;
         public const int TIMEOUT = 30; // seconds
 

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace FilmQuiz.Views
+namespace MovieQuiz.Views
 {
     public partial class HighScoresEntry : UserControl
     {

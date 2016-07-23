@@ -49,7 +49,7 @@
             // playButton
             // 
             this.playButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.playButton.Image = global::FilmQuiz.Properties.Resources.playbutton;
+            this.playButton.Image = global::MovieQuiz.Properties.Resources.playbutton;
             this.playButton.Location = new System.Drawing.Point(109, 82);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(106, 96);

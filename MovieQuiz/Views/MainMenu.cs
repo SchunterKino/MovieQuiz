@@ -11,7 +11,7 @@ namespace MovieQuiz.Views
         public MainMenu(MainController controller)
         {
             InitializeComponent();
-            Icon = FilmQuiz.Properties.Resources.quiz;
+            Icon = MovieQuiz.Properties.Resources.quiz;
 
             this.controller = controller;
             controller.setView(this);

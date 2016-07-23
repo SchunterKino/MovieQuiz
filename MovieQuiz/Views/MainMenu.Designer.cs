@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.logo = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.highScoresView = new FilmQuiz.Views.HighScoresView();
+            this.highScoresView = new MovieQuiz.Views.HighScoresView();
             this.newQuizView = new MovieQuiz.Views.MainMenuView();
             this.questionView = new MovieQuiz.Views.QuestionView();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -40,7 +40,7 @@
             // logo
             // 
             this.logo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.logo.Image = global::FilmQuiz.Properties.Resources.logo;
+            this.logo.Image = global::MovieQuiz.Properties.Resources.logo;
             this.logo.Location = new System.Drawing.Point(9, 9);
             this.logo.Margin = new System.Windows.Forms.Padding(0);
             this.logo.Name = "logo";
@@ -97,7 +97,7 @@
         private System.Windows.Forms.Timer timer;
         private MainMenuView newQuizView;
         private QuestionView questionView;
-        private FilmQuiz.Views.HighScoresView highScoresView;
+        private MovieQuiz.Views.HighScoresView highScoresView;
     }
 }
 

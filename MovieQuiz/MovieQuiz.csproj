@@ -7,8 +7,8 @@
     <ProjectGuid>{9F47E1BF-1AEF-46BA-9D56-6986F8787256}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FilmQuiz</RootNamespace>
-    <AssemblyName>FilmQuiz</AssemblyName>
+    <RootNamespace>MovieQuiz</RootNamespace>
+    <AssemblyName>MovieQuiz</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

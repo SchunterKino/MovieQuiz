@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FilmQuiz.Views
+namespace MovieQuiz.Views
 {
     public partial class HighScoresView : UserControl
     {
