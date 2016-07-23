@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.logo = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.newQuizView = new Views.NewQuizView();
-            this.questionView = new Views.QuestionView();
+            this.newQuizView = new MovieQuiz.Views.NewQuizView();
+            this.questionView = new MovieQuiz.Views.QuestionView();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,6 +50,7 @@
             // 
             // newQuizView
             // 
+            this.newQuizView.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.newQuizView.Location = new System.Drawing.Point(9, 110);
             this.newQuizView.Name = "newQuizView";
             this.newQuizView.Size = new System.Drawing.Size(366, 340);
@@ -57,6 +58,7 @@
             // 
             // questionView
             // 
+            this.questionView.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.questionView.Location = new System.Drawing.Point(9, 110);
             this.questionView.Name = "questionView";
             this.questionView.Size = new System.Drawing.Size(366, 340);
