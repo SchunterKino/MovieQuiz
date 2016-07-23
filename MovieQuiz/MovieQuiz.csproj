@@ -79,17 +79,17 @@
     <Compile Include="Extensions\ShuffleExtension.cs" />
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Quiz.cs" />
-    <Compile Include="Views\HighScoresEntry.cs">
+    <Compile Include="Views\LeaderboardEntry.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\HighScoresEntry.Designer.cs">
-      <DependentUpon>HighScoresEntry.cs</DependentUpon>
+    <Compile Include="Views\LeaderboardEntry.Designer.cs">
+      <DependentUpon>LeaderboardEntry.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\HighScoresView.cs">
+    <Compile Include="Views\LeaderboardView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\HighScoresView.Designer.cs">
-      <DependentUpon>HighScoresView.cs</DependentUpon>
+    <Compile Include="Views\LeaderboardView.Designer.cs">
+      <DependentUpon>LeaderboardView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\MainMenu.cs">
       <SubType>Form</SubType>
@@ -111,11 +111,11 @@
     <Compile Include="Views\QuestionView.Designer.cs">
       <DependentUpon>QuestionView.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\HighScoresEntry.resx">
-      <DependentUpon>HighScoresEntry.cs</DependentUpon>
+    <EmbeddedResource Include="Views\LeaderboardEntry.resx">
+      <DependentUpon>LeaderboardEntry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\HighScoresView.resx">
-      <DependentUpon>HighScoresView.cs</DependentUpon>
+    <EmbeddedResource Include="Views\LeaderboardView.resx">
+      <DependentUpon>LeaderboardView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>

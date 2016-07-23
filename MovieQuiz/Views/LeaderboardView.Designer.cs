@@ -1,6 +1,6 @@
 ﻿namespace MovieQuiz.Views
 {
-    partial class HighScoresView
+    partial class LeaderboardView
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,21 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.scorePanel = new System.Windows.Forms.Panel();
             this.menuButton = new System.Windows.Forms.Button();
+            this.leaderboardBox = new System.Windows.Forms.GroupBox();
+            this.scrollPanel = new System.Windows.Forms.Panel();
+            this.leaderboardBox.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // scorePanel
-            // 
-            this.scorePanel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.scorePanel.AutoSize = true;
-            this.scorePanel.Location = new System.Drawing.Point(3, 3);
-            this.scorePanel.Name = "scorePanel";
-            this.scorePanel.Size = new System.Drawing.Size(370, 177);
-            this.scorePanel.TabIndex = 0;
             // 
             // menuButton
             // 
+            this.menuButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.menuButton.Location = new System.Drawing.Point(98, 186);
             this.menuButton.Name = "menuButton";
             this.menuButton.Size = new System.Drawing.Size(181, 23);
@@ -51,22 +46,42 @@
             this.menuButton.UseVisualStyleBackColor = true;
             this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
             // 
-            // HighScoresView
+            // leaderboardBox
+            // 
+            this.leaderboardBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.leaderboardBox.Controls.Add(this.scrollPanel);
+            this.leaderboardBox.Location = new System.Drawing.Point(3, 3);
+            this.leaderboardBox.Name = "leaderboardBox";
+            this.leaderboardBox.Size = new System.Drawing.Size(370, 177);
+            this.leaderboardBox.TabIndex = 3;
+            this.leaderboardBox.TabStop = false;
+            this.leaderboardBox.Text = "Bestenliste";
+            // 
+            // scrollPanel
+            // 
+            this.scrollPanel.AutoScroll = true;
+            this.scrollPanel.Location = new System.Drawing.Point(6, 13);
+            this.scrollPanel.Name = "scrollPanel";
+            this.scrollPanel.Size = new System.Drawing.Size(347, 158);
+            this.scrollPanel.TabIndex = 0;
+            // 
+            // LeaderboardView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.leaderboardBox);
             this.Controls.Add(this.menuButton);
-            this.Controls.Add(this.scorePanel);
-            this.Name = "HighScoresView";
+            this.Name = "LeaderboardView";
             this.Size = new System.Drawing.Size(376, 212);
+            this.leaderboardBox.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel scorePanel;
         private System.Windows.Forms.Button menuButton;
+        private System.Windows.Forms.GroupBox leaderboardBox;
+        private System.Windows.Forms.Panel scrollPanel;
     }
 }

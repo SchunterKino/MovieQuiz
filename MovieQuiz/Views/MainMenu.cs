@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 using MovieQuiz.Controller;
 
@@ -11,7 +10,7 @@ namespace MovieQuiz.Views
         public MainMenu(MainController controller)
         {
             InitializeComponent();
-            Icon = MovieQuiz.Properties.Resources.quiz;
+            Icon = Properties.Resources.quiz;
 
             this.controller = controller;
             controller.setView(this);
@@ -22,14 +21,14 @@ namespace MovieQuiz.Views
             newQuizView.ShowHighScore += controller.OnRequestHighScore;
             questionView.GiveAnswer += controller.OnAnswer;
             questionView.PlaySoundFile += controller.OnPlaySoundFile;
-            highScoresView.ShowMenu += controller.OnRequestMainMenu;
+            leaderboardView.ShowMenu += controller.OnRequestMainMenu;
         }
 
         internal void ShowQuestion(List<string> answers, int questionNumber, int questionCount, int timeout)
         {
             controller.OnPlaySoundFile();
             newQuizView.Hide();
-            highScoresView.Hide();
+            leaderboardView.Hide();
             questionView.Show();
             questionView.SetQuestion(answers, questionNumber, questionCount, timeout);
         }
@@ -37,7 +36,7 @@ namespace MovieQuiz.Views
         internal void ShowMainMenu()
         {
             questionView.Hide();
-            highScoresView.Hide();
+            leaderboardView.Hide();
             newQuizView.Show();
         }
 
@@ -79,8 +78,8 @@ namespace MovieQuiz.Views
         {
             newQuizView.Hide();
             questionView.Hide();
-            highScoresView.Show();
-            highScoresView.SetHighScores(list);
+            leaderboardView.Show();
+            leaderboardView.SetScores(list);
         }
     }
 }

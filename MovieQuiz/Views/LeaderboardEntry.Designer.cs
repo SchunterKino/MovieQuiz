@@ -1,6 +1,6 @@
 ﻿namespace MovieQuiz.Views
 {
-    partial class HighScoresEntry
+    partial class LeaderboardEntry
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,13 +30,15 @@
         {
             this.nameLabel = new System.Windows.Forms.Label();
             this.scoreLabel = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // nameLabel
             // 
-            this.nameLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(17, 4);
+            this.nameLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.nameLabel.Location = new System.Drawing.Point(0, 0);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(35, 13);
             this.nameLabel.TabIndex = 0;
@@ -44,24 +46,36 @@
             // 
             // scoreLabel
             // 
-            this.scoreLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.scoreLabel.AutoSize = true;
-            this.scoreLabel.Location = new System.Drawing.Point(92, 4);
+            this.scoreLabel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.scoreLabel.Location = new System.Drawing.Point(110, 0);
             this.scoreLabel.Name = "scoreLabel";
             this.scoreLabel.Size = new System.Drawing.Size(35, 13);
             this.scoreLabel.TabIndex = 1;
             this.scoreLabel.Text = "Score";
+            this.scoreLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // HighScoresEntry
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.nameLabel);
+            this.panel1.Controls.Add(this.scoreLabel);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(145, 22);
+            this.panel1.TabIndex = 2;
+            // 
+            // LeaderboardEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.scoreLabel);
-            this.Controls.Add(this.nameLabel);
-            this.Name = "HighScoresEntry";
-            this.Size = new System.Drawing.Size(150, 27);
+            this.AutoSize = true;
+            this.Controls.Add(this.panel1);
+            this.Name = "LeaderboardEntry";
+            this.Size = new System.Drawing.Size(145, 22);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -69,5 +83,6 @@
 
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label scoreLabel;
+        private System.Windows.Forms.Panel panel1;
     }
 }

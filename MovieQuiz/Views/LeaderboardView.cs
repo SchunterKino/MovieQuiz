@@ -1,40 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MovieQuiz.Views
 {
-    public partial class HighScoresView : UserControl
+    public partial class LeaderboardView : UserControl
     {
         public event ShowMenuEventHandler ShowMenu;
         public delegate void ShowMenuEventHandler();
 
-        public HighScoresView()
+        public LeaderboardView()
         {
             InitializeComponent();
         }
 
-        public void SetHighScores(List<KeyValuePair<string, int>> scores)
+        public void SetScores(List<KeyValuePair<string, int>> scores)
         {
             // remove all existing scores entries
-            scorePanel.Controls.Clear();
+            scrollPanel.Controls.Clear();
 
             // highest score first
             scores.OrderBy(score => score.Value);
             scores.Reverse();
 
             foreach (var score in scores) {
-                var entry = new HighScoresEntry();
-                entry.SetScores(score.Key, score.Value);
+                var entry = new LeaderboardEntry();
+                entry.SetName(score.Key);
+                entry.SetScore(score.Value);
                 entry.AutoSize = true;
-                entry.Dock = System.Windows.Forms.DockStyle.Top;
-                scorePanel.Controls.Add(entry);
+                entry.Dock = DockStyle.Top;
+                scrollPanel.Controls.Add(entry);
             }
         }
 

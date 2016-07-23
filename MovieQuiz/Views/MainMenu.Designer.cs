@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.logo = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.highScoresView = new MovieQuiz.Views.HighScoresView();
+            this.leaderboardView = new MovieQuiz.Views.LeaderboardView();
             this.newQuizView = new MovieQuiz.Views.MainMenuView();
             this.questionView = new MovieQuiz.Views.QuestionView();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -49,13 +49,14 @@
             this.logo.TabIndex = 0;
             this.logo.TabStop = false;
             // 
-            // highScoresView
+            // leaderboardView
             // 
-            this.highScoresView.Location = new System.Drawing.Point(9, 110);
-            this.highScoresView.Name = "highScoresView";
-            this.highScoresView.Size = new System.Drawing.Size(366, 340);
-            this.highScoresView.TabIndex = 3;
-            this.highScoresView.Visible = false;
+            this.leaderboardView.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.leaderboardView.Location = new System.Drawing.Point(9, 110);
+            this.leaderboardView.Name = "leaderboardView";
+            this.leaderboardView.Size = new System.Drawing.Size(366, 340);
+            this.leaderboardView.TabIndex = 3;
+            this.leaderboardView.Visible = false;
             // 
             // newQuizView
             // 
@@ -80,12 +81,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 462);
             this.Controls.Add(this.newQuizView);
-            this.Controls.Add(this.highScoresView);
             this.Controls.Add(this.questionView);
+            this.Controls.Add(this.leaderboardView);
             this.Controls.Add(this.logo);
             this.MinimumSize = new System.Drawing.Size(400, 500);
             this.Name = "MainMenu";
-            this.Text = "Form1";
+            this.Text = "Filmquiz";
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.ResumeLayout(false);
 
@@ -97,7 +98,7 @@
         private System.Windows.Forms.Timer timer;
         private MainMenuView newQuizView;
         private QuestionView questionView;
-        private MovieQuiz.Views.HighScoresView highScoresView;
+        private MovieQuiz.Views.LeaderboardView leaderboardView;
     }
 }
 

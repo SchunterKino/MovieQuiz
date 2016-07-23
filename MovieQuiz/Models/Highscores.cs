@@ -3,11 +3,11 @@ using System.Data.SQLite;
 
 namespace MovieQuiz.Models
 {
-    public class HighScores
+    public class Highscores
     {
         private string connectionString;
 
-        public HighScores(string highscoreDB)
+        public Highscores(string highscoreDB)
         {
             connectionString = "Data Source=" + highscoreDB;
         }

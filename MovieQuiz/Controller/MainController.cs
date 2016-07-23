@@ -16,7 +16,7 @@ namespace MovieQuiz.Controller
         private int timeleft;
         private bool timerStarted = false;
         private WMPLib.WindowsMediaPlayer player;
-        private HighScores highscores = new HighScores(Program.HIGHSCORE_DB);
+        private Highscores highscores = new Highscores(Program.HIGHSCORE_DB);
 
         internal void setView(Views.MainMenu view)
         {

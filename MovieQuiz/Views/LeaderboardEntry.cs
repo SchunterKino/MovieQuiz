@@ -2,16 +2,20 @@
 
 namespace MovieQuiz.Views
 {
-    public partial class HighScoresEntry : UserControl
+    public partial class LeaderboardEntry : UserControl
     {
-        public HighScoresEntry()
+        public LeaderboardEntry()
         {
             InitializeComponent();
         }
 
-        public void SetScores(string name, int score)
+        public void SetName(string name)
         {
             nameLabel.Text = name;
+        }
+
+        public void SetScore(int score)
+        {
             scoreLabel.Text = score.ToString();
         }
     }

@@ -25,7 +25,7 @@ namespace MovieQuiz.Views
         private void nameText_TextChanged(object sender, EventArgs e)
         {
             // disable new game button when no player name is given
-            bool nameEntered = nameText.Text != String.Empty;
+            bool nameEntered = nameText.Text != string.Empty;
             newGameButton.Enabled = nameEntered;
         }
 
