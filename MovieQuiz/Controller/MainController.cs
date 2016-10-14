@@ -1,4 +1,6 @@
 ﻿using MovieQuiz.Models;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -9,18 +11,41 @@ namespace MovieQuiz.Controller
 {
     public class MainController
     {
-        private string teamName;
-        private Quiz quiz;
+        private string jsonFile;
+        private Highscores highscores;
+        private Config config;
         private Views.MainMenu view;
         private Timer timer;
         private int timeleft;
         private bool timerStarted = false;
+        private string teamName;
+        private Quiz quiz;
         private WMPLib.WindowsMediaPlayer player;
-        private Highscores highscores = new Highscores(Program.HIGHSCORE_DB);
+
+        public MainController(string jsonFile)
+        {
+            this.jsonFile = jsonFile;
+        }
 
         internal void setView(Views.MainMenu view)
         {
             this.view = view;
+            loadJsonFile(this.jsonFile);
+            highscores = new Highscores(config.HighscoreDatabase);
+        }
+
+        private void loadJsonFile(string jsonFile)
+        {
+            try
+            {
+                var jsonText = File.ReadAllText(jsonFile);
+                config = JsonConvert.DeserializeObject<Config>(jsonText);
+            }
+            catch (Exception e)
+            {
+                view.ShowError("Quiz Daten konnten nicht aus der " + jsonFile + " Datei geladen werden:" + Environment.NewLine + e.Message,
+                    "Fehler beim Laden des Quiz");
+            }
         }
 
         internal void setTimer(Timer timer)
@@ -32,20 +57,9 @@ namespace MovieQuiz.Controller
         public void OnNewGame(string teamName)
         {
             this.teamName = teamName;
-            try
-            {
-                quiz = new Quiz(Program.JSON_FILE);
-            }
-            catch (Exception e)
-            {
-                view.ShowError("Quiz Daten konnten nicht aus der " + Program.JSON_FILE + " Datei geladen werden:" + Environment.NewLine + e.Message,
-                    "Fehler beim Laden des Quiz");
-                return;
-            }
-
+            quiz = new Quiz(config.Questions);
             quiz.ShuffleQuestions();
-            quiz.LimitQuestionsTo(Program.MAX_QUESTIONS);
-
+            quiz.LimitQuestionsTo(config.MaxQuestions);
             NextQuestionOrFinish();
         }
 
@@ -55,7 +69,7 @@ namespace MovieQuiz.Controller
             if (!quiz.IsDone())
             {
                 timerStarted = false;
-                view.ShowQuestion(quiz.Answers, quiz.QuestionNumber, quiz.QuestionCount, Program.TIMEOUT);
+                view.ShowQuestion(quiz.Answers, quiz.QuestionNumber, quiz.QuestionCount, config.TimeoutSeconds);
             }
             else
             {
@@ -91,7 +105,7 @@ namespace MovieQuiz.Controller
 
             try
             {
-                player.URL = Path.Combine(Program.SOUND_DIR, quiz.SoundFile);
+                player.URL = Path.Combine(config.SoundDirectory, quiz.SoundFile);
                 player.controls.play();
             }
             catch (Exception ex)
@@ -109,7 +123,7 @@ namespace MovieQuiz.Controller
                 // playback ended
                 if (!timerStarted)
                 {
-                    timeleft = Program.TIMEOUT;
+                    timeleft = config.TimeoutSeconds;
                     timer.Interval = 1000;
                     timer.Start();
                     timerStarted = true;

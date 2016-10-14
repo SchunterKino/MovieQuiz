@@ -1,7 +1,5 @@
 ﻿using MovieQuiz.Extensions;
-using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 
 namespace MovieQuiz.Models
@@ -15,12 +13,11 @@ namespace MovieQuiz.Models
         public string SoundFile { get { return questions[QuestionNumber].SoundFile; } }
         public string CorrectAnswer { get { return questions[QuestionNumber].CorrectAnswer; } }
         public List<string> WrongAnswers { get { return questions[QuestionNumber].WrongAnswers; } }
-        public List<string> Answers { get { return WrongAnswers.Concat(new [] { CorrectAnswer }).ToList().Shuffle(); } }
+        public List<string> Answers { get { return WrongAnswers.Concat(new[] { CorrectAnswer }).ToList().Shuffle(); } }
 
-        public Quiz(string file)
+        public Quiz(List<Question> questions)
         {
-            var jsonText = File.ReadAllText(file);
-            questions = JsonConvert.DeserializeObject<List<Question>>(jsonText);
+            this.questions = questions;
         }
 
         public void ShuffleQuestions()
@@ -30,7 +27,7 @@ namespace MovieQuiz.Models
 
         public void LimitQuestionsTo(int maxQuestions)
         {
-            questions = questions.Take(maxQuestions+1).ToList();
+            questions = questions.Take(maxQuestions + 1).ToList();
         }
 
         internal bool IsDone()
