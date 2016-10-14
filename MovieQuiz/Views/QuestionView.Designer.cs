@@ -32,6 +32,7 @@
             this.playButton = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.answerPanel = new System.Windows.Forms.Panel();
+            this.timeoutLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.playButton)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +61,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.timeoutLabel);
             this.panel1.Controls.Add(this.answerPanel);
             this.panel1.Controls.Add(this.playButton);
             this.panel1.Controls.Add(this.label1);
@@ -76,6 +78,17 @@
             this.answerPanel.Name = "answerPanel";
             this.answerPanel.Size = new System.Drawing.Size(264, 146);
             this.answerPanel.TabIndex = 5;
+            // 
+            // timeoutLabel
+            // 
+            this.timeoutLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.timeoutLabel.AutoSize = true;
+            this.timeoutLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeoutLabel.Location = new System.Drawing.Point(241, 111);
+            this.timeoutLabel.Name = "timeoutLabel";
+            this.timeoutLabel.Size = new System.Drawing.Size(37, 39);
+            this.timeoutLabel.TabIndex = 6;
+            this.timeoutLabel.Text = "0";
             // 
             // QuestionView
             // 
@@ -97,5 +110,6 @@
         private System.Windows.Forms.PictureBox playButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel answerPanel;
+        private System.Windows.Forms.Label timeoutLabel;
     }
 }

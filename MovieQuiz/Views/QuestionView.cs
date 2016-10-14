@@ -38,6 +38,8 @@ namespace MovieQuiz.Views
                 button.Click += onButtonClicked;
                 answerPanel.Controls.Add(button);
             }
+
+            this.timeoutLabel.Text = String.Empty;
         }
 
         private void onButtonClicked(object sender, EventArgs e)
@@ -48,7 +50,7 @@ namespace MovieQuiz.Views
 
         internal void ShowRemainingTime(int seconds)
         {
-            // TODO
+            this.timeoutLabel.Text = seconds.ToString();
         }
     }
 }

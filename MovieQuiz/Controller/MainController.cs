@@ -130,11 +130,8 @@ namespace MovieQuiz.Controller
         public void OnTimerTick(object sender, EventArgs e)
         {
             timeleft--;
-            if (timeleft > 0)
-            {
-                view.ShowRemainingTime(timeleft);
-            }
-            else
+            view.ShowRemainingTime(timeleft);
+            if (timeleft <= 0)
             {
                 timer.Stop();
                 view.ShowTimeout(quiz.Score);
