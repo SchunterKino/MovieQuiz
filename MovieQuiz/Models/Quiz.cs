@@ -14,7 +14,8 @@ namespace MovieQuiz.Models
         public int QuestionCount { get { return questions.Count(); } }
         public string SoundFile { get { return questions[QuestionNumber].SoundFile; } }
         public string CorrectAnswer { get { return questions[QuestionNumber].CorrectAnswer; } }
-        public List<string> Answers { get { return questions[QuestionNumber].Answers; } }
+        public List<string> WrongAnswers { get { return questions[QuestionNumber].WrongAnswers; } }
+        public List<string> Answers { get { return WrongAnswers.Concat(new [] { CorrectAnswer }).ToList().Shuffle(); } }
 
         public Quiz(string file)
         {
