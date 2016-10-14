@@ -25,6 +25,8 @@ namespace MovieQuiz.Controller
         public MainController(string jsonFile)
         {
             this.jsonFile = jsonFile;
+            player = new WMPLib.WindowsMediaPlayer();
+            player.PlayStateChange += OnPlayerStateChange;
         }
 
         internal void setView(Views.MainMenu view)
@@ -97,12 +99,6 @@ namespace MovieQuiz.Controller
 
         public void OnPlaySoundFile()
         {
-            if (player == null)
-            {
-                player = new WMPLib.WindowsMediaPlayer();
-                player.PlayStateChange += OnPlayerStateChange;
-            }
-
             try
             {
                 player.URL = Path.Combine(config.SoundDirectory, quiz.SoundFile);
@@ -147,7 +143,9 @@ namespace MovieQuiz.Controller
 
         public void OnAnswer(string answer)
         {
+            player.controls.stop();
             timer.Stop();
+
             if (quiz.IsCorrectAnswer(answer))
             {
                 quiz.IncreaseScore();
