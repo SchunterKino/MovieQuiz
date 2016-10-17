@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.nameLabel = new System.Windows.Forms.Label();
             this.scoreLabel = new System.Windows.Forms.Label();
+            this.nameLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,34 +42,34 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(0, 1, 0, 1);
-            this.panel1.Size = new System.Drawing.Size(534, 22);
+            this.panel1.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.panel1.Size = new System.Drawing.Size(534, 30);
             this.panel1.TabIndex = 2;
+            // 
+            // scoreLabel
+            // 
+            this.scoreLabel.AutoSize = true;
+            this.scoreLabel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.scoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scoreLabel.Location = new System.Drawing.Point(451, 2);
+            this.scoreLabel.Name = "scoreLabel";
+            this.scoreLabel.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.scoreLabel.Size = new System.Drawing.Size(83, 26);
+            this.scoreLabel.TabIndex = 1;
+            this.scoreLabel.Text = "Score";
+            this.scoreLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // nameLabel
             // 
             this.nameLabel.AutoEllipsis = true;
             this.nameLabel.AutoSize = true;
             this.nameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.Location = new System.Drawing.Point(0, 1);
+            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLabel.Location = new System.Drawing.Point(0, 2);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(53, 20);
+            this.nameLabel.Size = new System.Drawing.Size(71, 26);
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Name";
-            // 
-            // scoreLabel
-            // 
-            this.scoreLabel.AutoSize = true;
-            this.scoreLabel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.scoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scoreLabel.Location = new System.Drawing.Point(467, 1);
-            this.scoreLabel.Name = "scoreLabel";
-            this.scoreLabel.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.scoreLabel.Size = new System.Drawing.Size(67, 20);
-            this.scoreLabel.TabIndex = 1;
-            this.scoreLabel.Text = "Score";
-            this.scoreLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // LeaderboardEntry
             // 

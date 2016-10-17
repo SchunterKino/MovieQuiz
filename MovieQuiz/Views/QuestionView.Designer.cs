@@ -40,7 +40,6 @@
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(83, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(452, 28);
@@ -87,7 +86,6 @@
             // 
             this.answerPanel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.answerPanel.AutoSize = true;
-            this.answerPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.answerPanel.Location = new System.Drawing.Point(143, 262);
             this.answerPanel.Name = "answerPanel";
             this.answerPanel.Size = new System.Drawing.Size(333, 116);
