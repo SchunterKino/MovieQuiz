@@ -38,9 +38,10 @@
             // 
             this.menuButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.menuButton.Location = new System.Drawing.Point(98, 186);
+            this.menuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuButton.Location = new System.Drawing.Point(98, 227);
             this.menuButton.Name = "menuButton";
-            this.menuButton.Size = new System.Drawing.Size(181, 23);
+            this.menuButton.Size = new System.Drawing.Size(487, 39);
             this.menuButton.TabIndex = 1;
             this.menuButton.Text = "Hauptmenü";
             this.menuButton.UseVisualStyleBackColor = true;
@@ -51,9 +52,10 @@
             this.leaderboardBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.leaderboardBox.Controls.Add(this.scrollPanel);
+            this.leaderboardBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.leaderboardBox.Location = new System.Drawing.Point(3, 3);
             this.leaderboardBox.Name = "leaderboardBox";
-            this.leaderboardBox.Size = new System.Drawing.Size(370, 177);
+            this.leaderboardBox.Size = new System.Drawing.Size(676, 177);
             this.leaderboardBox.TabIndex = 3;
             this.leaderboardBox.TabStop = false;
             this.leaderboardBox.Text = "Bestenliste";
@@ -61,9 +63,11 @@
             // scrollPanel
             // 
             this.scrollPanel.AutoScroll = true;
-            this.scrollPanel.Location = new System.Drawing.Point(6, 13);
+            this.scrollPanel.AutoSize = true;
+            this.scrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scrollPanel.Location = new System.Drawing.Point(3, 25);
             this.scrollPanel.Name = "scrollPanel";
-            this.scrollPanel.Size = new System.Drawing.Size(347, 158);
+            this.scrollPanel.Size = new System.Drawing.Size(670, 149);
             this.scrollPanel.TabIndex = 0;
             // 
             // LeaderboardView
@@ -73,8 +77,9 @@
             this.Controls.Add(this.leaderboardBox);
             this.Controls.Add(this.menuButton);
             this.Name = "LeaderboardView";
-            this.Size = new System.Drawing.Size(376, 212);
+            this.Size = new System.Drawing.Size(682, 431);
             this.leaderboardBox.ResumeLayout(false);
+            this.leaderboardBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
