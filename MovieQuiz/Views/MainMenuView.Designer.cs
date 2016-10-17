@@ -38,30 +38,33 @@
             // 
             // nameLabel
             // 
-            this.nameLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.nameLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(35, 119);
+            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLabel.Location = new System.Drawing.Point(107, 64);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(63, 13);
+            this.nameLabel.Size = new System.Drawing.Size(112, 24);
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Teamname:";
             // 
             // nameText
             // 
-            this.nameText.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.nameText.Location = new System.Drawing.Point(104, 116);
+            this.nameText.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.nameText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameText.Location = new System.Drawing.Point(225, 62);
             this.nameText.Name = "nameText";
-            this.nameText.Size = new System.Drawing.Size(216, 20);
+            this.nameText.Size = new System.Drawing.Size(249, 29);
             this.nameText.TabIndex = 1;
             this.nameText.TextChanged += new System.EventHandler(this.nameText_TextChanged);
             // 
             // newGameButton
             // 
-            this.newGameButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.newGameButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.newGameButton.Enabled = false;
-            this.newGameButton.Location = new System.Drawing.Point(38, 167);
+            this.newGameButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newGameButton.Location = new System.Drawing.Point(111, 160);
             this.newGameButton.Name = "newGameButton";
-            this.newGameButton.Size = new System.Drawing.Size(282, 23);
+            this.newGameButton.Size = new System.Drawing.Size(363, 39);
             this.newGameButton.TabIndex = 0;
             this.newGameButton.Text = "Neues Spiel";
             this.newGameButton.UseVisualStyleBackColor = true;
@@ -74,16 +77,19 @@
             this.panel1.Controls.Add(this.nameLabel);
             this.panel1.Controls.Add(this.nameText);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(363, 339);
+            this.panel1.Size = new System.Drawing.Size(585, 311);
             this.panel1.TabIndex = 2;
             // 
             // highScoreButton
             // 
-            this.highScoreButton.Location = new System.Drawing.Point(38, 211);
+            this.highScoreButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.highScoreButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.highScoreButton.Location = new System.Drawing.Point(111, 213);
             this.highScoreButton.Name = "highScoreButton";
-            this.highScoreButton.Size = new System.Drawing.Size(282, 23);
+            this.highScoreButton.Size = new System.Drawing.Size(363, 39);
             this.highScoreButton.TabIndex = 2;
             this.highScoreButton.Text = "Bestenliste";
             this.highScoreButton.UseVisualStyleBackColor = true;
@@ -95,7 +101,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Name = "MainMenuView";
-            this.Size = new System.Drawing.Size(363, 339);
+            this.Size = new System.Drawing.Size(585, 311);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
