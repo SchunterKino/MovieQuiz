@@ -11,5 +11,9 @@ namespace MovieQuiz.Extensions
         {
             return list.OrderBy(item => rnd.Next()).ToList();
         }
+        public static T Random<T>(this List<T> list)
+        {
+            return list.Shuffle().Take(1).Single();
+        }
     }
 }
