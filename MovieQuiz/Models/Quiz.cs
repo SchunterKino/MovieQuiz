@@ -14,6 +14,7 @@ namespace MovieQuiz.Models
         public string CorrectAnswer { get { return questions[QuestionNumber].CorrectAnswer; } }
         public List<string> WrongAnswers { get { return questions[QuestionNumber].WrongAnswers; } }
         public List<string> Answers { get { return WrongAnswers.Concat(new[] { CorrectAnswer }).ToList().Shuffle(); } }
+        public string JokerAnswer { get { return questions[QuestionNumber].WrongAnswers[0]; } }
 
         public Quiz(List<Question> questions)
         {

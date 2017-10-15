@@ -138,6 +138,12 @@ namespace MovieQuiz.Controller
             }
         }
 
+        public void OnUseJoker()
+        {
+            view.HideJoker();
+            view.StrikeAnswer(quiz.JokerAnswer);
+        }
+
         public void OnAnswer(string answer)
         {
             player.controls.stop();

@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.playButton = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.jokerButton = new System.Windows.Forms.PictureBox();
             this.timeoutLabel = new System.Windows.Forms.Label();
             this.answerPanel = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.playButton)).BeginInit();
+            this.playButton = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.jokerButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playButton)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -46,6 +48,52 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Aus welchem Film stammt diese Aufnahme?";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.jokerButton);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.timeoutLabel);
+            this.panel1.Controls.Add(this.answerPanel);
+            this.panel1.Controls.Add(this.playButton);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(619, 381);
+            this.panel1.TabIndex = 5;
+            // 
+            // jokerButton
+            // 
+            this.jokerButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.jokerButton.Image = global::MovieQuiz.Properties.Resources.joker;
+            this.jokerButton.Location = new System.Drawing.Point(159, 117);
+            this.jokerButton.Name = "jokerButton";
+            this.jokerButton.Size = new System.Drawing.Size(50, 39);
+            this.jokerButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.jokerButton.TabIndex = 7;
+            this.jokerButton.TabStop = false;
+            this.jokerButton.Click += new System.EventHandler(this.jokerButton_Click);
+            // 
+            // timeoutLabel
+            // 
+            this.timeoutLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.timeoutLabel.AutoSize = true;
+            this.timeoutLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeoutLabel.Location = new System.Drawing.Point(415, 130);
+            this.timeoutLabel.Name = "timeoutLabel";
+            this.timeoutLabel.Size = new System.Drawing.Size(37, 39);
+            this.timeoutLabel.TabIndex = 6;
+            this.timeoutLabel.Text = "0";
+            this.timeoutLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // answerPanel
+            // 
+            this.answerPanel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.answerPanel.AutoSize = true;
+            this.answerPanel.Location = new System.Drawing.Point(143, 262);
+            this.answerPanel.Name = "answerPanel";
+            this.answerPanel.Size = new System.Drawing.Size(333, 116);
+            this.answerPanel.TabIndex = 5;
             // 
             // playButton
             // 
@@ -59,38 +107,6 @@
             this.playButton.TabStop = false;
             this.playButton.Click += new System.EventHandler(this.playButton_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.timeoutLabel);
-            this.panel1.Controls.Add(this.answerPanel);
-            this.panel1.Controls.Add(this.playButton);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(619, 381);
-            this.panel1.TabIndex = 5;
-            // 
-            // timeoutLabel
-            // 
-            this.timeoutLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.timeoutLabel.AutoSize = true;
-            this.timeoutLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeoutLabel.Location = new System.Drawing.Point(387, 119);
-            this.timeoutLabel.Name = "timeoutLabel";
-            this.timeoutLabel.Size = new System.Drawing.Size(37, 39);
-            this.timeoutLabel.TabIndex = 6;
-            this.timeoutLabel.Text = "0";
-            // 
-            // answerPanel
-            // 
-            this.answerPanel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.answerPanel.AutoSize = true;
-            this.answerPanel.Location = new System.Drawing.Point(143, 262);
-            this.answerPanel.Name = "answerPanel";
-            this.answerPanel.Size = new System.Drawing.Size(333, 116);
-            this.answerPanel.TabIndex = 5;
-            // 
             // QuestionView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -98,9 +114,10 @@
             this.Controls.Add(this.panel1);
             this.Name = "QuestionView";
             this.Size = new System.Drawing.Size(619, 381);
-            ((System.ComponentModel.ISupportInitialize)(this.playButton)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.jokerButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playButton)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -112,5 +129,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel answerPanel;
         private System.Windows.Forms.Label timeoutLabel;
+        private System.Windows.Forms.PictureBox jokerButton;
     }
 }

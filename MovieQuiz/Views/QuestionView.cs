@@ -13,6 +13,9 @@ namespace MovieQuiz.Views
         public event PlaySoundEventHandler PlaySoundFile;
         public delegate void PlaySoundEventHandler();
 
+        public event UseJokerEventHandler UseJoker;
+        public delegate void UseJokerEventHandler();
+
         public QuestionView()
         {
             InitializeComponent();
@@ -21,6 +24,11 @@ namespace MovieQuiz.Views
         private void playButton_Click(object sender, EventArgs e)
         {
             PlaySoundFile();
+        }
+
+        private void jokerButton_Click(object sender, EventArgs e)
+        {
+            UseJoker();
         }
 
         internal void SetQuestion(List<string> answers, int questionNumber, int questionCount, int timeout)
@@ -51,6 +59,23 @@ namespace MovieQuiz.Views
         internal void ShowRemainingTime(int seconds)
         {
             this.timeoutLabel.Text = seconds.ToString();
+        }
+
+        internal void HideJoker()
+        {
+            this.jokerButton.Visible = false;
+        }
+
+        internal void StrikeAnswer(string jokerAnswer)
+        {
+            foreach (Button button in answerPanel.Controls)
+            {
+                if (button.Text == jokerAnswer)
+                {
+                    button.Enabled = false;
+                    break;
+                }
+            }
         }
     }
 }

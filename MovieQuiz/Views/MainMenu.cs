@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using MovieQuiz.Controller;
 
@@ -20,6 +21,7 @@ namespace MovieQuiz.Views
             newQuizView.StartGame += controller.OnNewGame;
             newQuizView.ShowHighScore += controller.OnRequestHighScore;
             questionView.GiveAnswer += controller.OnAnswer;
+            questionView.UseJoker += controller.OnUseJoker;
             questionView.PlaySoundFile += controller.OnPlaySoundFile;
             leaderboardView.ShowMenu += controller.OnRequestMainMenu;
         }
@@ -80,6 +82,16 @@ namespace MovieQuiz.Views
             questionView.Hide();
             leaderboardView.Show();
             leaderboardView.SetScores(list);
+        }
+
+        internal void HideJoker()
+        {
+            questionView.HideJoker();
+        }
+
+        internal void StrikeAnswer(string jokerAnswer)
+        {
+            questionView.StrikeAnswer(jokerAnswer);
         }
     }
 }
