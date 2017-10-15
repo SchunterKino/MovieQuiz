@@ -84,9 +84,9 @@ namespace MovieQuiz.Views
             leaderboardView.SetScores(list);
         }
 
-        internal void HideJoker()
+        internal void ShowJoker(bool show)
         {
-            questionView.HideJoker();
+            questionView.ShowJoker(show);
         }
 
         internal void StrikeAnswer(string jokerAnswer)

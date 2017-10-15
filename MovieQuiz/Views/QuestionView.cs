@@ -61,9 +61,9 @@ namespace MovieQuiz.Views
             this.timeoutLabel.Text = seconds.ToString();
         }
 
-        internal void HideJoker()
+        internal void ShowJoker(bool show)
         {
-            this.jokerButton.Visible = false;
+            this.jokerButton.Visible = show;
         }
 
         internal void StrikeAnswer(string jokerAnswer)
