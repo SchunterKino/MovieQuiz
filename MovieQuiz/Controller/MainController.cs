@@ -33,7 +33,8 @@ namespace MovieQuiz.Controller
         {
             this.view = view;
             loadJsonFile(this.jsonFile);
-            highscores = new Highscores(config.HighscoreDatabase);
+            if (config != null)
+                highscores = new Highscores(config.HighscoreDatabase);
         }
 
         private void loadJsonFile(string jsonFile)
