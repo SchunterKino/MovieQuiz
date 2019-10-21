@@ -8,6 +8,7 @@ namespace MovieQuiz.Models
     {
         public string SoundDirectory { get; set; }
         public string HighscoreDatabase { get; set; }
+        public bool EnableJoker { get; set; }
         public int MaxQuestions { get; set; }
         public double MaxPoints { get; set; }
         public double PointsPerCorrectAnswer { get; set; }

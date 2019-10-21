@@ -73,7 +73,7 @@ namespace MovieQuiz.Controller
             {
                 timerStarted = false;
                 view.ShowQuestion(quiz.Answers, quiz.QuestionNumber, quiz.QuestionCount, config.TimeoutSeconds);
-                view.ShowJoker(true);
+                view.ShowJoker(config.EnableJoker);
             }
             else
             {
