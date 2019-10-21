@@ -34,6 +34,7 @@
             this.timeoutLabel = new System.Windows.Forms.Label();
             this.answerPanel = new System.Windows.Forms.Panel();
             this.playButton = new System.Windows.Forms.PictureBox();
+            this.questionCountLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.jokerButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playButton)).BeginInit();
@@ -51,6 +52,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.questionCountLabel);
             this.panel1.Controls.Add(this.jokerButton);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.timeoutLabel);
@@ -107,6 +109,16 @@
             this.playButton.TabStop = false;
             this.playButton.Click += new System.EventHandler(this.playButton_Click);
             // 
+            // questionCountLabel
+            // 
+            this.questionCountLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.questionCountLabel.AutoSize = true;
+            this.questionCountLabel.Location = new System.Drawing.Point(280, 18);
+            this.questionCountLabel.Name = "questionCountLabel";
+            this.questionCountLabel.Size = new System.Drawing.Size(60, 13);
+            this.questionCountLabel.TabIndex = 8;
+            this.questionCountLabel.Text = "Frage 1/10";
+            // 
             // QuestionView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -130,5 +142,6 @@
         private System.Windows.Forms.Panel answerPanel;
         private System.Windows.Forms.Label timeoutLabel;
         private System.Windows.Forms.PictureBox jokerButton;
+        private System.Windows.Forms.Label questionCountLabel;
     }
 }

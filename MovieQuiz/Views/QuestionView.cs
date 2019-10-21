@@ -48,6 +48,7 @@ namespace MovieQuiz.Views
             }
 
             this.timeoutLabel.Text = String.Empty;
+            questionCountLabel.Text = string.Format("Frage {0}/{1}", questionNumber, questionCount);
         }
 
         private void onButtonClicked(object sender, EventArgs e)
