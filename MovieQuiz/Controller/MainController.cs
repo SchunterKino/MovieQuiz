@@ -86,7 +86,7 @@ namespace MovieQuiz.Controller
 
         public void OnRequestHighScore()
         {
-            List<KeyValuePair<string, int>> highscoreList;
+            List<KeyValuePair<string, double>> highscoreList;
             try
             {
                 highscoreList = highscores.GetEntries();
@@ -136,7 +136,7 @@ namespace MovieQuiz.Controller
             if (timeleft <= 0)
             {
                 timer.Stop();
-                view.ShowTimeout(quiz.Score);
+                view.ShowTimeout();
             }
         }
 
@@ -153,12 +153,12 @@ namespace MovieQuiz.Controller
 
             if (quiz.IsCorrectAnswer(answer))
             {
-                quiz.IncreaseScore();
+                quiz.IncreaseScore(config.PointsPerCorrectAnswer);
                 view.ShowCorrect(quiz.Score);
             }
             else
             {
-                view.ShowIncorrect(quiz.CorrectAnswer, quiz.Score);
+                view.ShowIncorrect(quiz.CorrectAnswer);
             }
         }
 

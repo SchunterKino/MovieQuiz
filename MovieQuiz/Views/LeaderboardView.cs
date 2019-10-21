@@ -17,7 +17,7 @@ namespace MovieQuiz.Views
             InitializeComponent();
         }
 
-        public void SetScores(List<KeyValuePair<string, int>> scores)
+        public void SetScores(List<KeyValuePair<string, double>> scores)
         {
             // remove all existing scores entries
             scrollPanel.Controls.Clear();

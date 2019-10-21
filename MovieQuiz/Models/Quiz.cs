@@ -7,7 +7,7 @@ namespace MovieQuiz.Models
     public class Quiz
     {
         private List<Question> questions;
-        public int Score { get; set; } = 0;
+        public double Score { get; set; } = 0;
         public int QuestionNumber { get; set; } = 0;
         public int QuestionCount { get { return questions.Count(); } }
         public string SoundFile { get { return questions[QuestionNumber].SoundFile; } }
@@ -41,9 +41,9 @@ namespace MovieQuiz.Models
             return answer == CorrectAnswer;
         }
 
-        internal void IncreaseScore()
+        internal void IncreaseScore(double answerPoints)
         {
-            Score++;
+            Score += answerPoints;
         }
 
         internal void nextQuestion()

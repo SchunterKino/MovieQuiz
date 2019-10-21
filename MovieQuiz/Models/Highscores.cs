@@ -12,7 +12,7 @@ namespace MovieQuiz.Models
             connectionString = "Data Source=" + highscoreDB;
         }
 
-        public void AddEntry(string teamName, int score)
+        public void AddEntry(string teamName, double score)
         {
             // connect to database (creates file if not exists)
             using (var dbConnection = new SQLiteConnection(connectionString))
@@ -32,9 +32,9 @@ namespace MovieQuiz.Models
             }
         }
 
-        public List<KeyValuePair<string, int>> GetEntries()
+        public List<KeyValuePair<string, double>> GetEntries()
         {
-            var highscores = new List<KeyValuePair<string, int>>();
+            var highscores = new List<KeyValuePair<string, double>>();
 
             // connect to database (creates file if not exists)
             using (var dbConnection = new SQLiteConnection(connectionString))
@@ -50,8 +50,8 @@ namespace MovieQuiz.Models
                     while (reader.Read())
                     {
                         string name = reader.GetString(0);
-                        int score = reader.GetInt32(1);
-                        highscores.Add(new KeyValuePair<string, int>(name, score));
+                        double score = decimal.ToDouble(reader.GetDecimal(1));
+                        highscores.Add(new KeyValuePair<string, double>(name, score));
                     }
                 }
             }
@@ -63,7 +63,7 @@ namespace MovieQuiz.Models
         {
             using (var createTableCommand = dbConnection.CreateCommand())
             {
-                createTableCommand.CommandText = "CREATE TABLE IF NOT EXISTS highscores (name VARCHAR(128), score INT)";
+                createTableCommand.CommandText = "CREATE TABLE IF NOT EXISTS highscores (name VARCHAR(128), score DECIMAL(10,2))";
                 createTableCommand.ExecuteNonQuery();
             }
         }

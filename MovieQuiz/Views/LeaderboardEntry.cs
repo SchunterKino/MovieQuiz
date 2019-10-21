@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Globalization;
+using System.Windows.Forms;
 
 namespace MovieQuiz.Views
 {
@@ -14,9 +15,9 @@ namespace MovieQuiz.Views
             nameLabel.Text = name;
         }
 
-        public void SetScore(int score)
+        public void SetScore(double score)
         {
-            scoreLabel.Text = score.ToString();
+            scoreLabel.Text = score.ToString("F", CultureInfo.InvariantCulture);
         }
     }
 }
