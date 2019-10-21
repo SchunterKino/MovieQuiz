@@ -9,7 +9,7 @@ namespace MovieQuiz.Models
         private List<Question> questions;
         private double maxPoints;
         public double Score { get; set; } = 0;
-        public int QuestionNumber { get; set; } = 0;
+        public int QuestionNumber { get; set; } = -1;
         public int QuestionCount { get { return questions.Count(); } }
         public string SoundFile { get { return questions[QuestionNumber].SoundFile; } }
         public string CorrectAnswer { get { return questions[QuestionNumber].CorrectAnswer; } }
@@ -30,7 +30,7 @@ namespace MovieQuiz.Models
 
         public void LimitQuestionsTo(int maxQuestions)
         {
-            questions = questions.Take(maxQuestions + 1).ToList();
+            questions = questions.Take(maxQuestions).ToList();
         }
 
         internal bool IsDone()
