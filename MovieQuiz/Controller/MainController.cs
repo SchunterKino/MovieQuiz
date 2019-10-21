@@ -60,7 +60,7 @@ namespace MovieQuiz.Controller
         public void OnNewGame(string teamName)
         {
             this.teamName = teamName;
-            quiz = new Quiz(config.Questions);
+            quiz = new Quiz(config.Questions, config.MaxPoints);
             quiz.ShuffleQuestions();
             quiz.LimitQuestionsTo(config.MaxQuestions);
             NextQuestionOrFinish();

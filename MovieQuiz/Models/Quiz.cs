@@ -7,6 +7,7 @@ namespace MovieQuiz.Models
     public class Quiz
     {
         private List<Question> questions;
+        private double maxPoints;
         public double Score { get; set; } = 0;
         public int QuestionNumber { get; set; } = 0;
         public int QuestionCount { get { return questions.Count(); } }
@@ -16,9 +17,10 @@ namespace MovieQuiz.Models
         public List<string> Answers { get { return WrongAnswers.Concat(new[] { CorrectAnswer }).ToList().Shuffle(); } }
         public string JokerAnswer { get { return questions[QuestionNumber].WrongAnswers.Random(); } }
 
-        public Quiz(List<Question> questions)
+        public Quiz(List<Question> questions, double maxPoints)
         {
             this.questions = questions;
+            this.maxPoints = maxPoints;
         }
 
         public void ShuffleQuestions()
@@ -33,7 +35,11 @@ namespace MovieQuiz.Models
 
         internal bool IsDone()
         {
-            return QuestionNumber >= QuestionCount;
+            if (QuestionNumber >= QuestionCount)
+                return true;
+            if (maxPoints > 0 && Score >= maxPoints)
+                return true;
+            return false;
         }
 
         internal bool IsCorrectAnswer(string answer)
