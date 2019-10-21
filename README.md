@@ -7,7 +7,11 @@ Requires a bunch of sound clips and a `quiz.json` file in the same directory as 
 {
     "SoundDirectory" : "Sounds",
     "HighscoreDatabase" : "highscores.sqlite",
+    "EnableJoker": true,
     "MaxQuestions": 10,
+    "MaxPoints": 0,
+    "PointsPerCorrectAnswer": 1,
+    "PointsPerWrongAnswer": 0,
     "TimeoutSeconds": 20,
     "Questions": [
         {
