@@ -52,21 +52,21 @@ namespace MovieQuiz.Views
             questionView.ShowRemainingTime(seconds);
         }
 
-        internal void ShowTimeout()
+        internal void ShowTimeout(double score)
         {
-            MessageBox.Show("Zu spät, die Zeit ist um!", "Zu spät!");
+            MessageBox.Show(string.Format("Zu spät, die Zeit ist um!\nAktuell habt ihr {0:F} Punkte.", score), "Zu spät!");
             controller.OnRequestNextQuestion();
         }
 
         internal void ShowCorrect(double score)
         {
-            MessageBox.Show(string.Format("Richtig! Damit habt ihr {0:F} Punkte.", "Richtig!", score));
+            MessageBox.Show(string.Format("Richtig! Damit habt ihr {0:F} Punkte.", score), "Richtig!");
             controller.OnRequestNextQuestion();
         }
 
-        internal void ShowIncorrect(string correctAnswer)
+        internal void ShowIncorrect(string correctAnswer, double score)
         {
-            MessageBox.Show("Leider falsch. Die richtige Antwort ist: " + correctAnswer, "Leider falsch");
+            MessageBox.Show(string.Format("Leider falsch. Die richtige Antwort ist: {0}\nAktuell habt ihr {1:F} Punkte.", correctAnswer, score), "Leider falsch");
             controller.OnRequestNextQuestion();
         }
 

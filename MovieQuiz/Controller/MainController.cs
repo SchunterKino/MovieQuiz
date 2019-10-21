@@ -136,7 +136,8 @@ namespace MovieQuiz.Controller
             if (timeleft <= 0)
             {
                 timer.Stop();
-                view.ShowTimeout();
+                quiz.IncreaseScore(config.PointsPerWrongAnswer);
+                view.ShowTimeout(quiz.Score);
             }
         }
 
@@ -148,8 +149,8 @@ namespace MovieQuiz.Controller
 
         public void OnAnswer(string answer)
         {
-            player.controls.stop();
             timer.Stop();
+            player.controls.stop();
 
             if (quiz.IsCorrectAnswer(answer))
             {
@@ -158,7 +159,8 @@ namespace MovieQuiz.Controller
             }
             else
             {
-                view.ShowIncorrect(quiz.CorrectAnswer);
+                quiz.IncreaseScore(config.PointsPerWrongAnswer);
+                view.ShowIncorrect(quiz.CorrectAnswer, quiz.Score);
             }
         }
 
