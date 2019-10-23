@@ -149,8 +149,8 @@ namespace MovieQuiz.Controller
 
         public void OnAnswer(string answer)
         {
-            timer.Stop();
             player.controls.stop();
+            timer.Stop();
 
             if (quiz.IsCorrectAnswer(answer))
             {

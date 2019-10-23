@@ -50,6 +50,8 @@ namespace MovieQuiz.Models
         internal void IncreaseScore(double answerPoints)
         {
             Score += answerPoints;
+            if (Score < 0)
+                Score = 0;
         }
 
         internal void nextQuestion()
