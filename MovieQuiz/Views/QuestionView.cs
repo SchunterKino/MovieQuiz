@@ -78,5 +78,32 @@ namespace MovieQuiz.Views
                 }
             }
         }
+
+        internal void HighlightCorrectAnswer(string correctAnswer)
+        {
+            foreach (Button button in answerPanel.Controls)
+            {
+                if (button.Text == correctAnswer)
+                {
+                    button.BackColor = System.Drawing.Color.LightGreen;
+                    break;
+                }
+            }
+            Invalidate();
+        }
+
+        internal void HighlightWrongAnswer(string correctAnswer, string wrongAnswer)
+        {
+            HighlightCorrectAnswer(correctAnswer);
+            foreach (Button button in answerPanel.Controls)
+            {
+                if (button.Text == wrongAnswer)
+                {
+                    button.BackColor = System.Drawing.Color.Red;
+                    break;
+                }
+            }
+            Invalidate();
+        }
     }
 }
